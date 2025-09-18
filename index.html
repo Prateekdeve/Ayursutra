@@ -14,11 +14,7 @@
             background: linear-gradient(135deg, #f4f1e8 0%, #e8dcc0 100%);
             position: relative;
             overflow-x: hidden;
-        }
-
-        .manuscript-bg {
-            background-image:
-                radial-gradient(circle at 20% 80%, rgba(139, 69, 19, 0.1) 0%, transparent 50%),
+            background-image: radial-gradient(circle at 20% 80%, rgba(139, 69, 19, 0.1) 0%, transparent 50%),
                 radial-gradient(circle at 80% 20%, rgba(34, 139, 34, 0.1) 0%, transparent 50%),
                 linear-gradient(45deg, transparent 49%, rgba(139, 69, 19, 0.05) 50%, transparent 51%);
             background-size: 200px 200px, 150px 150px, 50px 50px;
@@ -262,7 +258,8 @@
         <div id="doctorDashboard" class="hidden">
             <div class="max-w-7xl mx-auto p-6">
                 <div class="flex justify-between items-center mb-8">
-                    <h1 class="text-3xl font-bold text-amber-800" style="font-family: 'Cinzel', serif;">Practitioner Dashboard
+                    <h1 class="text-3xl font-bold text-amber-800" style="font-family: 'Cinzel', serif;">Practitioner
+                        Dashboard
                     </h1>
                     <button onclick="showHomepage()"
                         class="bg-amber-600 hover:bg-amber-700 text-white px-4 py-2 rounded-lg">Back to Home</button>
@@ -373,6 +370,7 @@
                                     <th class="text-left py-3 px-4 font-semibold text-gray-700">Progress</th>
                                     <th class="text-left py-3 px-4 font-semibold text-gray-700">Next Session</th>
                                     <th class="text-left py-3 px-4 font-semibold text-gray-700">Status</th>
+                                    <th class="text-left py-3 px-4 font-semibold text-gray-700">Actions</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -389,6 +387,11 @@
                                     <td class="py-3 px-4"><span
                                             class="bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs">Active</span>
                                     </td>
+                                    <td class="py-3 px-4">
+                                        <button
+                                            class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg text-sm">Contact
+                                            Patient</button>
+                                    </td>
                                 </tr>
                                 <tr class="border-b border-gray-100 hover:bg-amber-50">
                                     <td class="py-3 px-4">Rajesh Kumar</td>
@@ -403,6 +406,11 @@
                                     <td class="py-3 px-4"><span
                                             class="bg-blue-100 text-blue-800 px-2 py-1 rounded-full text-xs">New</span>
                                     </td>
+                                    <td class="py-3 px-4">
+                                        <button
+                                            class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg text-sm">Contact
+                                            Patient</button>
+                                    </td>
                                 </tr>
                                 <tr class="border-b border-gray-100 hover:bg-amber-50">
                                     <td class="py-3 px-4">Meera Patel</td>
@@ -416,6 +424,11 @@
                                     <td class="py-3 px-4">Today 2:00 PM</td>
                                     <td class="py-3 px-4"><span
                                             class="bg-purple-100 text-purple-800 px-2 py-1 rounded-full text-xs">Ongoing</span>
+                                    </td>
+                                    <td class="py-3 px-4">
+                                        <button
+                                            class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg text-sm">Contact
+                                            Patient</button>
                                     </td>
                                 </tr>
                             </tbody>
@@ -684,6 +697,20 @@
         </div>
     </div>
 
+    <!-- Chatbot Toggle Button -->
+    <button id="chatbotToggle"
+        style="position: fixed; bottom: 20px; right: 20px; z-index: 1000; background-color:#F59E0B; border:none; padding:10px 15px; border-radius:5px; cursor:pointer;">
+        Chat
+    </button>
+
+    <!-- Chatbot Window -->
+    <div id="chatbotWindow"
+        style="position: fixed; bottom: 70px; right: 20px; width: 320px; height: 400px; background: white; box-shadow: 0 0 10px rgba(0,0,0,0.2); display: none; flex-direction: column; font-family: Arial, sans-serif; z-index: 1000; border-radius: 8px;">
+        <div id="chatbotMessages"
+            style="flex: 1; padding: 10px; overflow-y: auto; border-bottom: 1px solid #ccc; font-size:14px;"></div>
+        <input type="text" id="chatbotInput" style="border: none; padding: 10px; font-size: 14px; outline:none;"
+            placeholder="Type a message..." />
+    </div>
     <script>
         function showSignIn() {
             document.getElementById('signInModal').classList.remove('hidden');
