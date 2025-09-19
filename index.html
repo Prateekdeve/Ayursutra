@@ -186,6 +186,48 @@
                 </div>
             </section>
 
+            <!-- Panchakarma Methods Section -->
+            <section id="panchakarma-methods" class="py-16 px-4">
+                <div class="max-w-6xl mx-auto">
+                    <h2 class="text-4xl font-bold text-center text-amber-800 mb-12"
+                        style="font-family: 'Cinzel', serif;">Panchakarma Methods</h2>
+                    <div class="grid md:grid-cols-3 gap-8">
+                        <div class="card-leaf rounded-2xl p-8 text-center">
+                            <div class="text-4xl mb-4">💧</div>
+                            <h3 class="text-xl font-semibold text-amber-800 mb-4">Vamana</h3>
+                            <p class="text-gray-700">Therapeutic emesis to detoxify the upper gastrointestinal tract and
+                                remove Kapha-related toxins.</p>
+                        </div>
+                        <div class="card-leaf rounded-2xl p-8 text-center">
+                            <div class="text-4xl mb-4">🔥</div>
+                            <h3 class="text-xl font-semibold text-amber-800 mb-4">Virechana</h3>
+                            <p class="text-gray-700">Purgation therapy to cleanse the liver, gallbladder, and
+                                intestines,
+                                balancing Pitta dosha.</p>
+                        </div>
+                        <div class="card-leaf rounded-2xl p-8 text-center">
+                            <div class="text-4xl mb-4">💨</div>
+                            <h3 class="text-xl font-semibold text-amber-800 mb-4">Basti</h3>
+                            <p class="text-gray-700">Medicated enema therapy to eliminate toxins from the colon and
+                                balance Vata dosha.</p>
+                        </div>
+                        <div class="card-leaf rounded-2xl p-8 text-center">
+                            <div class="text-4xl mb-4">👁️</div>
+                            <h3 class="text-xl font-semibold text-amber-800 mb-4">Nasya</h3>
+                            <p class="text-gray-700">Nasal administration of herbal oils to clear the sinuses and
+                                improve
+                                respiratory health.</p>
+                        </div>
+                        <div class="card-leaf rounded-2xl p-8 text-center">
+                            <div class="text-4xl mb-4">🛁</div>
+                            <h3 class="text-xl font-semibold text-amber-800 mb-4">Raktamokshana</h3>
+                            <p class="text-gray-700">Bloodletting therapy to purify the blood and treat skin disorders
+                                and other Pitta-related conditions.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
             <!-- Features Section -->
             <section id="features" class="py-16 px-4">
                 <div class="max-w-6xl mx-auto">
@@ -697,20 +739,9 @@
         </div>
     </div>
 
-    <!-- Chatbot Toggle Button -->
-    <button id="chatbotToggle"
-        style="position: fixed; bottom: 20px; right: 20px; z-index: 1000; background-color:#F59E0B; border:none; padding:10px 15px; border-radius:5px; cursor:pointer;">
-        Chat
-    </button>
 
-    <!-- Chatbot Window -->
-    <div id="chatbotWindow"
-        style="position: fixed; bottom: 70px; right: 20px; width: 320px; height: 400px; background: white; box-shadow: 0 0 10px rgba(0,0,0,0.2); display: none; flex-direction: column; font-family: Arial, sans-serif; z-index: 1000; border-radius: 8px;">
-        <div id="chatbotMessages"
-            style="flex: 1; padding: 10px; overflow-y: auto; border-bottom: 1px solid #ccc; font-size:14px;"></div>
-        <input type="text" id="chatbotInput" style="border: none; padding: 10px; font-size: 14px; outline:none;"
-            placeholder="Type a message..." />
-    </div>
+
+
     <script>
         function showSignIn() {
             document.getElementById('signInModal').classList.remove('hidden');
