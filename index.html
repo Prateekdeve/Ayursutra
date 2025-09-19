@@ -114,7 +114,31 @@
                             class="text-amber-800 hover:text-amber-600 px-3 py-2 rounded-md text-sm font-medium transition-colors">Contact</a>
                     </div>
                 </div>
-                <div class="flex space-x-2">
+                <div class="flex items-center space-x-2">
+                    <!-- Language Selector -->
+                    <div class="relative inline-block text-left">
+                        <button type="button" id="language-toggle"
+                            class="inline-flex justify-center items-center w-full rounded-md border border-amber-300 shadow-sm px-3 py-2 bg-white/80 text-sm font-medium text-amber-800 hover:bg-amber-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-amber-100 focus:ring-amber-500 transition-colors">
+                            <span id="current-language">English</span>
+                            <svg class="-mr-1 ml-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
+                                fill="currentColor" aria-hidden="true">
+                                <path fill-rule="evenodd"
+                                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                        </button>
+                        <div id="language-dropdown"
+                            class="hidden origin-top-right absolute right-0 mt-2 w-40 rounded-md shadow-lg bg-white/90 backdrop-blur-md ring-1 ring-black ring-opacity-5 focus:outline-none z-50"
+                            role="menu" aria-orientation="vertical" aria-labelledby="language-toggle">
+                            <div class="py-1" role="none">
+                                <a href="#" class="text-gray-700 block px-4 py-2 text-sm hover:bg-amber-50"
+                                    role="menuitem" onclick="setLanguage('English', event)">English</a>
+                                <a href="#" class="text-gray-700 block px-4 py-2 text-sm hover:bg-amber-50"
+                                    role="menuitem" onclick="setLanguage('Hindi', event)">हिन्दी (Hindi)</a>
+                            </div>
+                        </div>
+                    </div>
+
                     <button onclick="showSignIn()"
                         class="bg-amber-600 hover:bg-amber-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors">Sign
                         In</button>
@@ -251,6 +275,29 @@
                             <h3 class="text-xl font-semibold text-amber-800 mb-4">Progress Tracking</h3>
                             <p class="text-gray-700">Real-time therapy tracking with visualization tools, progress
                                 graphs, and personalized recovery milestone monitoring.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Find a Center Section -->
+            <section id="find-center" class="py-16 px-4">
+                <div class="max-w-6xl mx-auto">
+                    <h2 class="text-4xl font-bold text-center text-amber-800 mb-12"
+                        style="font-family: 'Cinzel', serif;">Find a Panchakarma Center Near You</h2>
+                    <div class="card-leaf rounded-3xl p-10">
+                        <div class="max-w-2xl mx-auto mb-8">
+                            <div class="flex">
+                                <input type="text" placeholder="Enter your city or zip code..."
+                                    class="w-full p-4 border border-amber-200 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-amber-500 text-lg">
+                                <button
+                                    class="bg-amber-600 hover:bg-amber-700 text-white px-8 py-4 rounded-r-lg text-lg font-medium transition-colors">Search</button>
+                            </div>
+                        </div>
+                        <div id="map" class="w-full h-96 bg-gray-200 rounded-lg border-2 border-amber-200">
+                            <div class="flex items-center justify-center h-full">
+                                <p class="text-gray-500 text-lg">Map will be loaded here.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -790,7 +837,42 @@
         </div>
     </div>
 
+    <!-- Chatbot -->
+    <div id="chat-widget" class="fixed bottom-5 right-5 z-50">
+        <button onclick="toggleChat()"
+            class="bg-amber-600 text-white w-16 h-16 rounded-full shadow-lg flex items-center justify-center text-3xl transform hover:scale-110 transition-transform">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd"
+                    d="M18 10c0 3.866-3.582 7-8 7a8.962 8.962 0 01-4.326-.979V17a1 1 0 001 1h2.586a1 1 0 00.707-.293l.16-.16A8.967 8.967 0 0010 17c4.418 0 8-3.134 8-7s-3.582-7-8-7-8 3.134-8 7c0 1.76.743 3.37 1.97 4.6-.097-.096-.186-.195-.27-.295A8.976 8.976 0 012 10c0-3.866 3.582-7 8-7s8 3.134 8 7zM4.433 16.125A7.012 7.012 0 013 14.957c-.016-.01-.03-.02-.046-.03A8.96 8.96 0 0010 15c.29 0 .576-.013.857-.038a1 1 0 00.857-1.247l-.11-1.242a1 1 0 01.99-1.128 7.001 7.001 0 004.965-5.133.25.25 0 00-.3-.285l-3.12 1.04a.5.5 0 01-.573-.626l1.04-3.12a.25.25 0 00-.285-.3A7.001 7.001 0 007.03 4.957 1 1 0 006 6.12v1.586l-1.242-.11a1 1 0 00-1.247.857.25.25 0 00.038.857A7.001 7.001 0 004.433 16.125z"
+                    clip-rule="evenodd" />
+            </svg>
+        </button>
+    </div>
 
+    <div id="chat-window"
+        class="hidden fixed bottom-24 right-5 w-96 bg-white rounded-lg shadow-2xl border-2 border-amber-200 z-50"
+        style="font-family: 'Crimson Text', serif;">
+        <div class="p-4 bg-amber-600 text-white rounded-t-lg flex justify-between items-center">
+            <h3 class="text-lg font-semibold" style="font-family: 'Cinzel', serif;">AyurSutra Assistant</h3>
+            <button onclick="toggleChat()" class="text-white text-2xl leading-none">&times;</button>
+        </div>
+        <div id="chat-messages" class="p-4 h-80 overflow-y-auto">
+            <div class="mb-4">
+                <div class="bg-gray-200 p-3 rounded-lg inline-block">
+                    Hello! How can I help you today?
+                </div>
+            </div>
+        </div>
+        <div class="p-4 border-t border-amber-200">
+            <div class="flex">
+                <input type="text" id="chat-input" placeholder="Type your message..."
+                    class="w-full p-2 border border-amber-200 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-amber-500"
+                    onkeydown="if(event.key === 'Enter') sendMessage()">
+                <button onclick="sendMessage()"
+                    class="bg-amber-600 hover:bg-amber-700 text-white px-4 rounded-r-lg">Send</button>
+            </div>
+        </div>
+    </div>
 
 
     <script>
@@ -843,6 +925,7 @@
         window.addEventListener('click', function (e) {
             const signInModal = document.getElementById('signInModal');
             const signUpModal = document.getElementById('signUpModal');
+            const langDropdown = document.getElementById('language-dropdown');
 
             if (e.target === signInModal) {
                 signInModal.classList.add('hidden');
@@ -850,7 +933,37 @@
             if (e.target === signUpModal) {
                 signUpModal.classList.add('hidden');
             }
+            // Close language dropdown if click is outside
+            const langToggle = document.getElementById('language-toggle');
+            if (langToggle && !langToggle.contains(e.target) && langDropdown && !langDropdown.contains(e.target)) {
+                langDropdown.classList.add('hidden');
+            }
         });
+
+        // Language switcher logic
+        const langToggle = document.getElementById('language-toggle');
+        const langDropdown = document.getElementById('language-dropdown');
+        const currentLangSpan = document.getElementById('current-language');
+
+        if (langToggle) {
+            langToggle.addEventListener('click', (event) => {
+                event.stopPropagation(); // prevent window.click from closing it immediately
+                langDropdown.classList.toggle('hidden');
+            });
+        }
+
+        function setLanguage(language, event) {
+            event.preventDefault();
+            if (language === 'Hindi') {
+                currentLangSpan.textContent = 'हिन्दी';
+            } else {
+                currentLangSpan.textContent = language;
+            }
+            langDropdown.classList.add('hidden');
+            // Placeholder for translation logic
+            console.log(`Language changed to ${language}`);
+            alert(`Language switched to ${language}. Page content translation is not yet implemented.`);
+        }
 
         // Practitioner Actions dropdown logic
         document.addEventListener('click', function (e) {
@@ -898,6 +1011,40 @@
                 document.querySelectorAll('.action-dropdown').forEach(d => d.classList.add('hidden'));
             }
         });
+
+        // Chatbot functionality
+        function toggleChat() {
+            const chatWindow = document.getElementById('chat-window');
+            chatWindow.classList.toggle('hidden');
+        }
+
+        function sendMessage() {
+            const input = document.getElementById('chat-input');
+            const message = input.value.trim();
+            if (message) {
+                // Add user message to chat
+                addMessageToChat('You', message, 'user');
+                input.value = '';
+
+                // Simulate bot response
+                setTimeout(() => {
+                    addMessageToChat('AyurSutra Assistant', 'This is a simulated response.', 'bot');
+                }, 1000);
+            }
+        }
+
+        function addMessageToChat(sender, message, type) {
+            const chatMessages = document.getElementById('chat-messages');
+            const messageDiv = document.createElement('div');
+            messageDiv.classList.add('mb-4', type === 'user' ? 'text-right' : 'text-left');
+            messageDiv.innerHTML = `
+                <div class="${type === 'user' ? 'bg-green-100' : 'bg-gray-200'} p-3 rounded-lg inline-block">
+                    ${message}
+                </div>
+            `;
+            chatMessages.appendChild(messageDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight; // Scroll to bottom
+        }
     </script>
     <script>(function () { function c() { var b = a.contentDocument || a.contentWindow.document; if (b) { var d = b.createElement('script'); d.innerHTML = "window.__CF$cv$params={r:'97f72c9307bb91aa',t:'MTc1NzkyOTM0Ny4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);"; b.getElementsByTagName('head')[0].appendChild(d) } } if (document.body) { var a = document.createElement('iframe'); a.height = 1; a.width = 1; a.style.position = 'absolute'; a.style.top = 0; a.style.left = 0; a.style.border = 'none'; a.style.visibility = 'hidden'; document.body.appendChild(a); if ('loading' !== document.readyState) c(); else if (window.addEventListener) document.addEventListener('DOMContentLoaded', c); else { var e = document.onreadystatechange || function () { }; document.onreadystatechange = function (b) { e(b); 'loading' !== document.readyState && (document.onreadystatechange = e, c()) } } } })();</script>
 </body>
